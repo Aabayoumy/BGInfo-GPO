@@ -1,6 +1,4 @@
-# GPO-BGInfo
-
-### Group policy Backup to implement BGInfo to automate update wallpaper on user logon
+<h2 align="center">  Group policy Backup to implement BGInfo to automate update wallpaper on user logon <h2>
 
 Download zip file to DC and extract https://github.com/Aabayoumy/GPO-BGInfo/archive/refs/heads/master.zip .
 Download https://download.sysinternals.com/files/BGInfo.zip and copy Bginfo.exe or Bginfo64.exe to main folder (according to target machines architect 32 or/and 64 bit).
@@ -15,3 +13,5 @@ Write-Host \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\
 This commands will restore the GPO copy files to Sysvol Script Path and show you this path, take note of output path you need to update it in GPO .
 
 ![FolderSource](FolderSource.png)
+
+<h4 align="center">Link "BGInfo" to Required OU 😊</h4>
