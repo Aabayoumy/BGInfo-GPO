@@ -9,9 +9,9 @@ Cd to extracted folder and run this command on Administrative "Active Directory 
 ```powershell
 Restore-GPO -Path "$((Get-Item .).FullName)"
 Copy-Item Bginfo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\ -force -Recurse
-echo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\
+Write-Host \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\
 ```
 
 This commands will restore the GPO copy files to Sysvol Script Path and show you this path, take note of output path you need to update it in GPO .
 
-[My image](https://github.com/Aabayoumy/GPO-BGInfo/blob/master/FolderSource.png)
+![FolderSource](FolderSource.png)
