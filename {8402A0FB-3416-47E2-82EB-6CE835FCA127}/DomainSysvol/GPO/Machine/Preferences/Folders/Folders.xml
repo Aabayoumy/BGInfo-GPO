@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Folders clsid="{77CC39E7-3D16-4f8f-AF86-EC0BBEE2C861}"><Folder clsid="{07DA02F5-F9CD-4397-A550-4AE21B6B4BD3}" name="BGInfo" status="BGInfo" image="0" changed="2021-12-10 12:34:04" uid="{ED28AC3F-C053-4659-96D0-C12C6FCB01AE}" bypassErrors="1"><Properties action="C" path="%ProgramData%\BGInfo" readOnly="0" archive="1" hidden="0"/><Filters><FilterRunOnce hidden="1" not="0" bool="AND" id="{F5A15D25-E3B7-48A9-A89A-B6EA3D0CFB49}"/>
+		</Filters></Folder>
+</Folders>
