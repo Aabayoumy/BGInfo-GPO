@@ -12,4 +12,6 @@ Copy-Item Bginfo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\ -force 
 echo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\
 ```
 
-This commands will restore the GPO copy files to Sysvol Script Path and show you this path, take note of output path you need to update it in GPO
+This commands will restore the GPO copy files to Sysvol Script Path and show you this path, take note of output path you need to update it in GPO .
+
+[My image](https://github.com/Aabayoumy/GPO-BGInfo/blob/master/FolderSource.png)
