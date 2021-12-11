@@ -5,7 +5,8 @@ Download https://download.sysinternals.com/files/BGInfo.zip and copy Bginfo.exe 
 Cd to extracted folder and run this command on Administrative "Active Directory PowerShell"
 
 ```powershell
-Restore-GPO -Path "$((Get-Item .).FullName)"
+New-GPO BGInfo
+import-gpo -BackupGpoName BGInfo -TargetName BGInfo -Path "$((Get-Item .).FullName)"
 Copy-Item Bginfo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\ -force -Recurse
 Write-Host \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\
 ```
