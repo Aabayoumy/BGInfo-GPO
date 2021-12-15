@@ -18,4 +18,6 @@ If you replace the wallpaper.jpg file in folder \\$Env:USERDNSDOMAIN\sysvol\$Env
 
 Link "BGInfo" to Required OU 😊
 
+Also BGinfo.html is report of GPO you can read it and create the GPO form scratch.
+
 ![Result](Result.png)
