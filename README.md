@@ -14,7 +14,8 @@ Copy-Item Bginfo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\ -force 
 ```
 
 This commands will restore the GPO copy files to Sysvol Script Path and show you this path, Replace the Path in GPO with current domain name.
+If you replace the wallpaper.jpg file in folder \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\BGinfo it's will effect client computers after next group policy apply.
 
-![FolderSource](FolderSource.png)
+Link "BGInfo" to Required OU 😊
 
-<h4 align="center">Link "BGInfo" to Required OU 😊</h4>
+![Result](Result.png)
