@@ -1,7 +1,6 @@
 # GPO Backup to implement BGInfo
 
 Download zip file to DC and extract https://github.com/Aabayoumy/BGInfo-GPO/archive/refs/heads/master.zip .
-Download https://download.sysinternals.com/files/BGInfo.zip and copy Bginfo.exe or Bginfo64.exe to main folder (according to target machines architect 32 or/and 64 bit).
 Cd to extracted folder and run this command on Administrative "Active Directory PowerShell"
 
 ```powershell
@@ -10,6 +9,7 @@ Cd to extracted folder and run this command on Administrative "Active Directory 
 Import-Module grouppolicy
 New-GPO BGInfo
 Import-gpo -BackupGpoName BGInfo -TargetName BGInfo -Path "$((Get-Item .).FullName)"
+Invoke-WebRequest https://live.sysinternals.com/Bginfo.exe -OutFile .\bginfo\bginfo.exe
 Copy-Item Bginfo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\ -force -Recurse
 
 ```
