@@ -1,15 +1,22 @@
 # GPO Backup to implement BGInfo
 
-Download zip file to DC and extract https://github.com/Aabayoumy/BGInfo-GPO/archive/refs/heads/master.zip .
-Cd to extracted folder and run this command on Administrative "Active Directory PowerShell"
+Run this command on Administrative "Active Directory PowerShell" (On DC or computer with RSAT installed & Domain Admin user).
 
 ```powershell
+#Import Required Module to create and import GPO
+Import-Module grouppolicy
+#Create New GPO
+New-GPO BGInfo -Comment "https://github.com/Aabayoumy/BGInfo-GPO"
+#Download Master files from GitHub
+Invoke-WebRequest https://github.com/Aabayoumy/BGInfo-GPO/archive/refs/heads/master.zip -OutFile "$env:TEMP\BGInfo-GPO.zip"
+Expand-Archive -LiteralPath "$env:TEMP\BGInfo-GPO.zip" -DestinationPath $env:TEMP
+cd "$env:TEMP\BGInfo-GPO-master"
 #Update Domain Name in GPO
 ((Get-Content -path '.\{8402A0FB-3416-47E2-82EB-6CE835FCA127}\DomainSysvol\GPO\Machine\Preferences\Files\Files.xml' -Raw) -replace "CONTOSO.COM", $Env:USERDNSDOMAIN) | Set-Content -Path '.\{8402A0FB-3416-47E2-82EB-6CE835FCA127}\DomainSysvol\GPO\Machine\Preferences\Files\Files.xml'
-Import-Module grouppolicy
-New-GPO BGInfo
+#Import GPO
 Import-gpo -BackupGpoName BGInfo -TargetName BGInfo -Path "$((Get-Item .).FullName)"
-Invoke-WebRequest https://live.sysinternals.com/Bginfo.exe -OutFile .\bginfo\bginfo.exe
+#Download BGInfo.exe & Copy Bginfo folder to Domain script folder
+Invoke-WebRequest https://live.sysinternals.com/Bginfo.exe -OutFile .\BGinfo\bginfo.exe
 Copy-Item Bginfo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\ -force -Recurse
 
 ```
