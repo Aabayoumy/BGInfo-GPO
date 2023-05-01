@@ -4,7 +4,19 @@ Download https://github.com/Aabayoumy/BGInfo-GPO/archive/refs/heads/master.zip t
 
 copy the extracted folder to Domain Controller
 open powershell as administrator and CD to same folder you copied.
-run command .\install.ps1
+run commands :
+
+```powershell
+#Import Required Module to create and import GPO
+Import-Module grouppolicy
+#Update Domain Name in GPO
+((Get-Content -path '.\{8402A0FB-3416-47E2-82EB-6CE835FCA127}\DomainSysvol\GPO\Machine\Preferences\Files\Files.xml' -Raw) -replace "CONTOSO.COM", $Env:USERDNSDOMAIN) | Set-Content -Path '.\{8402A0FB-3416-47E2-82EB-6CE835FCA127}\DomainSysvol\GPO\Machine\Preferences\Files\Files.xml'
+#Create & import New GPO
+New-GPO BGInfo -Comment "https://github.com/Aabayoumy/BGInfo-GPO"
+Import-gpo -BackupGpoName BGInfo -TargetName BGInfo -Path "$((Get-Item .).FullName)"
+# Copy requred files to sysvol
+Copy-Item Bginfo \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\ -force -Recurse
+```
 
 This commands will restore the GPO copy files to Sysvol Script Path and show you this path, Replace the Path in GPO with current domain name.
 If you replace the wallpaper.jpg file in folder \\$Env:USERDNSDOMAIN\sysvol\$Env:USERDNSDOMAIN\scripts\BGinfo it's will effect client computers after next group policy apply.
