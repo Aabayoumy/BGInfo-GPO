@@ -29,3 +29,5 @@ Link "BGInfo" to Required OU 😊
 Also BGinfo.html is report of GPO you can read it and create the GPO form scratch.
 
 ![Result](Result.png)
+
+IP VBS script source : https://social.technet.microsoft.com/Forums/scriptcenter/en-US/bb74c2eb-eca2-455d-a270-8dd0f3d195e6/wmi-query-to-retrieve-only-active-ipv4-address
