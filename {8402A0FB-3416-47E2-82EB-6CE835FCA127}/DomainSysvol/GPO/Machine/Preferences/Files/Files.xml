@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Files clsid="{215B2E53-57CE-475c-80FE-9EEC14635851}"><File clsid="{50BE44C8-567A-4ed1-B1D0-9234FE1F38AF}" name="BGInfo" status="BGInfo" image="1" changed="2021-12-10 12:36:10" uid="{9063C4D8-E588-4455-884E-E672A1EA48BE}"><Properties action="R" fromPath="\\CONTOSO.COM\sysvol\CONTOSO.COM\scripts\BGInfo\*.*" targetPath="%ProgramData%\BGInfo" readOnly="0" archive="1" hidden="0" suppress="0"/></File>
-</Files>
